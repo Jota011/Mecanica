@@ -1,5 +1,22 @@
 <?php require_once './Templates/header.php'; ?>
+<link rel="stylesheet" href="/Public/CSS/loginView.css">
+<script src="/JavaScript/loginView.js"></script>
 <body>
-        
+        <div class="hero is-fullheight">
+                <div class="hero-body is-justify-content-center is-align-items-center">
+                        <form action="/home" method="post">
+                                <div class="columns is-flex is-flex-direction-column box">
+                                        <div class="column">
+                                                <label for="pin">PIN PARA ACESSO</label>
+                                                <br>
+                                                <input class="input is-info" id="pin" type="text" name="pinLogin" placeholder="1234..." required>
+                                        </div>
+                                        <div class="column">
+                                                <button class="button is-info is-fullwidth" type="submit">ENTRAR</button>
+                                        </div>
+                                </div>
+                        </form>
+                </div>
+        </div>
 </body>
 </html>
