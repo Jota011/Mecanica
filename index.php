@@ -1,2 +1,2 @@
 <?php
-require './global.php';
+header('Location:/mecanicasenai/View/loginView.php');
