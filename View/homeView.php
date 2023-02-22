@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once './Templates/header.php' 
+include_once '../Templates/header.php' 
 ?>
 <body>
 	HOME PHP
