@@ -1,4 +1,5 @@
 <?php
+session_start();
 function validaLogin(){
     if(isset($_POST['pinLogin']) && !empty($_POST['pinLogin'])){
         $_SESSION['pinLogin'] = $_POST['pinLogin'];
