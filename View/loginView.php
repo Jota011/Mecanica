@@ -1,6 +1,5 @@
 <?php require_once '../Templates/header.php'; ?>
-<link rel="stylesheet" href="/Public/CSS/loginView.css">
-<script src="/JavaScript/loginView.js"></script>
+<link rel="stylesheet" href="../Public/CSS/loginView.css">
 <body>
         <div class="hero is-fullheight">
                 <div class="hero-body is-justify-content-center is-align-items-center">
