@@ -1,12 +1,11 @@
 <?php 
 require_once '../Templates/header.php'; 
-require '../Controller/validaLogin.php';
 ?>
 <link rel="stylesheet" href="../Public/CSS/loginView.css">
 <body>
         <div class="hero is-fullheight">
                 <div class="hero-body is-justify-content-center is-align-items-center">
-                        <form action="" method="post">
+                        <form action="../Controller/validaLogin.php" method="post">
                                 <div class="columns is-flex is-flex-direction-column box">
                                         <div class="column">
                                                 <label for="pin">PIN PARA ACESSO</label>
