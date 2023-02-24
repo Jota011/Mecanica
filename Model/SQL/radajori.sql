@@ -10,7 +10,8 @@ USE radajori;
 CREATE TABLE `usuariopin` (
   `id_userpin` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
-  `pin` varchar(255) NOT NULL
+  `pin` varchar(255) NOT NULL,
+  `dev` tinyint not null
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `motor` (
@@ -29,17 +30,12 @@ CREATE TABLE `ordem_servico` (
   `professor` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
-  `usuario` varchar(255) NOT NULL,
-  `senha` varchar(100) NOT NULL,
-  `nivel_acesso` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 CREATE TABLE `veiculos` (
-  `id_veiculos` int(11) NOT NULL,
-  `nome_veiculos` varchar(255) NOT NULL,
-  `marca` varchar(50) NOT NULL
+  `id_veiculo` int(11) NOT NULL,
+  `modelo` varchar(255) NOT NULL,
+  `marca` varchar(50) NOT NULL,
+  `cor` varchar(50) NULL,
+  `descricao` text NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `motor`
@@ -66,3 +62,5 @@ ALTER TABLE `ordem_servico`
 ALTER TABLE `veiculos`
   MODIFY `id_veiculos` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+INSERT INTO usuariopin(nome,pin,dev) VALUES('DEV','radajori007@',1);
