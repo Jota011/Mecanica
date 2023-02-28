@@ -65,4 +65,4 @@ ALTER TABLE `veiculos`
   MODIFY `id_veiculo` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
-INSERT INTO usuariopin(nome,pin,is_dev) VALUES('DEV','radajori007@',1);
+INSERT INTO usuariopin(nome,pin,is_dev) VALUES('DEV','radajori',1);
