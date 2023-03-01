@@ -1,11 +1,11 @@
 <?php
+session_start();
 
 if(isset($_POST['pinLogin'])){
     validarLogin($_POST['pinLogin']);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function validarLogin($pin){
     require '../Model/connection.php';
     if(!empty($pin)){
@@ -14,7 +14,10 @@ function validarLogin($pin){
         $num_rows = mysqli_num_rows($query); 
         if($num_rows){
             $row = mysqli_fetch_assoc($query);
-            $_SESSION['usuario'] = $row['nome'];
+            $_SESSION['nome'] = $row['nome'];
+            if($row['is_dev'] != 0){
+                $_SESSION['is_dev'] = $row['is_dev'];
+            }
             header('Location:../View/homeView.php');
         }else{
             header('Location:../View/loginView.php?erro=1');
