@@ -1,24 +1,14 @@
-<?php   
-    if(isset($POST['submit']))
-    {
-        print_r($_POST['descricao_motor']);
-        print_r($_POST['id_motor']);
-    }
-?>
-<link rel="stylesheet" href="teste.css">
+<link rel="stylesheet" href="../Public/CSS/cadmotor.css">
 <body>
 <div class="">
     <div class="box">
-        <form method="POST" action="teste.php" >
+        <form method="POST" action="../Model/SQL/inclusao_motor.php" >
             <fieldset>
                <legend> Cadastro de motor</legend>
                <br>
+               
                 <div class="inputBox">
-                <input type="text" name= "motor" id="motor" class= "inputMotor" required>
-                <label for="cod">Motor</label>
-
-                <div class="inputBox">
-                <input type="text" name= "numeracao_motor" id="numeracao_motor" class= "inpuNumeracaoMotor" required>
+                <input type="text" name= "numeracao_motor" id="numeracao_motor" class= "inputNumeracaoMotor" required>
                 <label for="cod">Numeracão do motor</label>
 
 
