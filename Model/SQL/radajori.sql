@@ -37,9 +37,11 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `veiculos` (
-  `id_veiculos` int(11) NOT NULL,
-  `nome_veiculos` varchar(255) NOT NULL,
-  `marca` varchar(50) NOT NULL
+  `id_veiculo` int(11) NOT NULL,
+  `modelo` varchar(255) NOT NULL,
+  `marca` varchar(50) NOT NULL,
+  `cor` varchar(50) NULL,
+  `descricao` text NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `motor`

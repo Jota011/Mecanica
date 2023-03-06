@@ -4,10 +4,12 @@ $dbname = 'radajori';
 $username = 'root';
 $psswrd = '';
 
-try{
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname",$username,$psswrd);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo 'conectado';
-}catch(PDOException $e){
-    echo $e->getMessage();
+$con=mysqli_connect("localhost", "root", "","radajori");
+
+$mysqli = new mysqli($host,$username,$psswrd,$dbname);
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
+}else{
+    //echo 'conectado';
 }
