@@ -10,12 +10,15 @@ USE radajori;
 CREATE TABLE `usuariopin` (
   `id_userpin` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
-  `pin` varchar(255) NOT NULL
+  `pin` varchar(255) NOT NULL,
+  `is_dev` tinyint not null
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `motor` (
   `id_motor` int(11) NOT NULL,
-  `descricao_motor` varchar(255) NOT NULL
+  `numeracao_motor` varchar(255) not null,
+  `descricao_motor` varchar(255) NOT NULL,
+  `base` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `ordem_servico` (
@@ -26,14 +29,7 @@ CREATE TABLE `ordem_servico` (
   `periodo` varchar(100) NOT NULL,
   `turma` varchar(100) NOT NULL,
   `veiculo` varchar(255) not null, 
-  `professor` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
-  `usuario` varchar(255) NOT NULL,
-  `senha` varchar(100) NOT NULL,
-  `nivel_acesso` varchar(20) DEFAULT NULL
+  `responsavel` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `veiculos` (
@@ -54,7 +50,7 @@ ALTER TABLE `usuariopin`
   ADD PRIMARY KEY (`id_userpin`);
 
 ALTER TABLE `veiculos`
-  ADD PRIMARY KEY (`id_veiculos`);
+  ADD PRIMARY KEY (`id_veiculo`);
 
 ALTER TABLE `usuariopin`
   MODIFY `id_userpin` int(11) NOT NULL AUTO_INCREMENT;
@@ -66,5 +62,7 @@ ALTER TABLE `ordem_servico`
   MODIFY `id_os` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `veiculos`
-  MODIFY `id_veiculos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_veiculo` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+INSERT INTO usuariopin(nome,pin,is_dev) VALUES('DEV','radajori',1);

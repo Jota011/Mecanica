@@ -4,6 +4,6 @@ include_once '../Templates/header.php';
 ?>
 <body>
 	HOME PHP
-	<a href="../View/cadCarroView.php">Teste de cadastro</a>
+	<?php var_dump($_SESSION);	?>
 </body>
 </html>
