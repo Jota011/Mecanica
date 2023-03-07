@@ -8,15 +8,15 @@ include_once '../Templates/header.php';
         <form action="">
             <label for="data">DATA</label>
             <input type="date" id="data">
+            <label for="turno">Turno:</label>
             <select name="turno" id="turno"> <!--TURNO É PERIODO NO DATABASE-->
-                <option value="">Selecione Turno</option>
                 <option value="Matutino">Matutino</option>
                 <option value="Vespertino">Vespertino</option>
                 <option value="Noturno">Noturno</option>
             </select>
             <input type="text" name="turma" placeholder="Turma...">
+            <label for="veiculo">Veículo: </label>
             <select name="veiculo" id="veiculo" style="max-width:200px;">
-                <option value="">Selecione Veículo</option>
                 <?php
                 $sql = "SELECT * FROM veiculos";
                 $query = $mysqli->query($sql);
