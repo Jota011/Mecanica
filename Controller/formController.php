@@ -1,11 +1,7 @@
 <?php
 session_start();
+require_once '../Controller/actionController.php';
 
-if(isset($_POST['pinLogin'])){
-    validarLogin($_POST['pinLogin']);
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function validarLogin($pin){
     require '../Model/connection.php';
     if(!empty($pin)){
