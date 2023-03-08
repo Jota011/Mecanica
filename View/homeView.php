@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once '../Templates/header.php' 
+include_once '../Templates/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +13,8 @@ include_once '../Templates/header.php'
     
     <!-- estilo que vem do index.css -->
     <link rel="stylesheet" href="../Public/CSS/estiloHome.css">
-    <link rel="stylesheet" href="../Public/CSS/style.css">
-	<link rel="stylesheet" href="../Public/CSS/style.css">
+    
+	
 	<link rel="icon" href="../Public/Imagens/senai_logo.png" type="image/icon type">
     
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -22,25 +22,23 @@ include_once '../Templates/header.php'
 
 </head>
 <body>
-    
-    
-    <div>
-        
-        <a href="?page=cadastro_os">cadastro os</a>
-        <a href="?page=cadastro_cliente">cadastro cliente</a>
-        
-    </div>
 
     <nav class="sidebar close">
         <header>
-            <div class="image-text">
-                <span class="image"></span>
-
-                <div class="text logo-text">
-                    <span class="Titulo_sidebar">SENAI </span>
+            
+        <div >            
+            <a href="homeView.php">
+                    <button class="text_senai" >
+                        <img src="../Public/Imagens/senai_logo.png" >
+                    </button>
+            </a>     
+        </div>    
+                        
+       
+            
+                
+                        
                     
-                </div>
-            </div>
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
@@ -49,7 +47,7 @@ include_once '../Templates/header.php'
 
 
                     <li class="nav-link">
-                        <a href="?page=cadastro_os">
+                        <a href="cadCarroView.php">
                             
 							<i class='bx bxs-car-mechanic icon'></i>
                             <span class="text nav-text ">Cadastro de Carro</span>                            
@@ -85,20 +83,10 @@ include_once '../Templates/header.php'
             </div>
         </div>
     </nav>
-    
-
-
-
     <section class="home">
-        <div class="menu_principal">MENU PRINCIPAL</div>
-        
-       
-<Br>
-        
-
+    <div class="menu_principal">MENU PRINCIPAL</div>
+    <Br>
     </section>
-    
-
     <script>
         
       const body = document.querySelector('body'),
@@ -106,29 +94,18 @@ include_once '../Templates/header.php'
       toggle = body.querySelector(".toggle"),
       procurar = body.querySelector(".search-box"),
       modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
-      
-      function deslogar(){
-    
-        location.href = "login/login.php";
-  }
+      modeText = body.querySelector(".mode-text");          
 
-toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
-})
+            toggle.addEventListener("click" , () =>{
+                sidebar.classList.toggle("close");
+            })
 
-procurar.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
-/*funcao do professor*/ 
-document.querySelector('.abrir-modal').addEventListener('click', function() {
-	document.querySelector('.box').classList.remove('box-hidden');
-})
+            procurar.addEventListener("click" , () =>{
+                sidebar.classList.remove("close");
+            })
 
-document.querySelector('.btn-fechar-modal').addEventListener('click', function() {
-	document.querySelector('.box').classList.add('box-hidden');
-});
     </script>
+
 
 </body>
 </html>
