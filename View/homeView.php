@@ -26,20 +26,15 @@ include_once '../Templates/header.php';
     <nav class="sidebar close">
         <header>
             
-        <div >            
+        <div >             
             <a href="homeView.php">
                     <button class="text_senai" >
                         <img src="../Public/Imagens/senai_logo.png" >
                     </button>
             </a>     
         </div>    
-                        
-       
-            
-                
-                        
-                    
-            <i class='bx bx-chevron-right toggle'></i>
+                               
+        <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
             <div class="menu">
