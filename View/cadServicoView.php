@@ -5,9 +5,9 @@ include_once '../Templates/header.php';
 <body>
     <div class="container">
         <h2>Cadastro de Serviço</h2>
-        <form action="">
+        <form action="../Controller/formController.php?action=cadServico" method="post">
             <label for="data">DATA</label>
-            <input type="date" id="data">
+            <input type="date" id="data" name="data">
             <label for="turno">Turno:</label>
             <select name="turno" id="turno"> <!--TURNO É PERIODO NO DATABASE-->
                 <option value="Matutino">Matutino</option>
@@ -27,7 +27,7 @@ include_once '../Templates/header.php';
                 ?>
             </select>
             <textarea placeholder="Atividades realizadas..." name="descricao" id="descricao" cols="30" rows="10" style="resize:none;"></textarea>
-            <input type="text" placeholder="Responsável pela aula" value="<?php echo isset($_SESSION['nome']) ? $_SESSION['nome'] : ''; ?>">
+            <input type="text" name="responsavel" placeholder="Responsável pela aula" value="<?php echo isset($_SESSION['nome']) ? $_SESSION['nome'] : ''; ?>">
             <div id="botoes">
                 <input type="submit" value="Cadastrar Serviço">
             </div>

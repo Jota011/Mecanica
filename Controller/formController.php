@@ -24,3 +24,16 @@ function validarLogin($pin){
         header('Location:./View/loginView.php');
     }
 }
+
+function cadServico($data, $turno, $turma, $veiculo, $descricao, $resp){
+    require '../Model/connection.php';
+    require '../Model/procuraDados.php';
+    try{
+        $veiculoDado = procuraVeiculo($veiculo);
+        $sql = "INSERT INTO ordem_servico(data_os, periodo, turma, veiculo, descricao_atividade, responsavel) VALUES('$data','$turno','$turma','$veiculoDado','$descricao','$resp')";
+        $mysqli->query($sql);
+        header('Location:../View/consServicoView.php');
+    }catch(mysqli_sql_exception $e){
+        $e->getMessage();
+    }
+}
