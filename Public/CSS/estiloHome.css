@@ -53,7 +53,7 @@ body {
     width: 88px;
 }
 
-/* ===== Reusable code - Here ===== */
+
 .sidebar li {
     height: 50px;
     list-style: none;
@@ -86,6 +86,13 @@ body {
 
 .sidebar .text {
     font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar .text_senai {
+    font-size:25px;
     font-weight: 500;
     white-space: nowrap;
     opacity: 1;
@@ -199,6 +206,9 @@ body.dark .sidebar header .toggle {
 
 .sidebar li a:hover {
     background-color: var(--primary-color);
+}
+.sidebar li .home_cor_link:hover {
+    background-color:none;
 }
 
 .sidebar li a:hover .icon,
@@ -355,8 +365,32 @@ body.dark .home .text {
     font-size: center;
 }
 
+.Titulo_senai{
+    font-size: 42px;
+    height: 21px;
+    font-size: center;
+}
 .button_logout{
     border: none;
     background: none;
-    width: 89px;
+    width: 45px;
 }
+.button_home{
+    border: none;
+    background: none;
+    width: 250px;
+    font-size: 250px;
+}
+
+.text_senai{
+    border: none;
+    background-color: white;
+}
+
+img {
+    height: auto;
+    max-width: 84%;
+}
+
+
+

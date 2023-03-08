@@ -4,6 +4,7 @@ require '../Model/connection.php';
 
 ?>
 <body>
+
     <div class="cadCarroView">
 
         <form class="form-horizontal" method="post" action="../Model/inclusao_Carro.php">
