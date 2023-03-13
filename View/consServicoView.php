@@ -3,16 +3,17 @@ require '../Model/connection.php';
 include '../Templates/header.php';
 ?>
 <!--CONSULTA SERVICO-->
+
 <body>
     <div class="container">
-        <table class="table">
+        <table class="">
             <tr>
-                <th scope="col">DATA</th>
-                <th scope="col">TURNO</th>
-                <th scope="col">TURMA</th>
-                <th scope="col">VEÍCULO</th>
-                <th scope="col">DESCRIÇÃO</th>
-                <th scope="col">RESPONSÁVEL</th>
+                <th scope="">DATA</th>
+                <th scope="">TURNO</th>
+                <th scope="">TURMA</th>
+                <th scope="">VEÍCULO</th>
+                <th scope="">DESCRIÇÃO</th>
+                <th scope="">RESPONSÁVEL</th>
             </tr>
 
             <body>
@@ -21,14 +22,14 @@ include '../Templates/header.php';
                     require '../Model/connection.php';
                     $sql = "SELECT * FROM ordem_servico ORDER BY id_os";
                     $query = $mysqli->query($sql);
-                    while($row = mysqli_fetch_assoc($query)){
-                        echo  '<td scope="row">' . $row['data_os'] . '</td>'
-                            . '<td scope="row">' . $row['periodo'] . '</td>'
-                            . '<td scope="row">' . $row['turma'] . '</td>'
-                            . '<td scope="row">' . $row['veiculo'] . '</td>'
-                            . '<td scope="row">' . $row['descricao_atividade'] . '</td>'
-                            . '<td scope="row">' . $row['responsavel'] . '</td>';
-                     }
+                    while ($row = mysqli_fetch_assoc($query)) {
+                        echo  '<td scope="">' . $row['data_os'] . '</td>'
+                            . '<td scope="">' . $row['periodo'] . '</td>'
+                            . '<td scope="">' . $row['turma'] . '</td>'
+                            . '<td scope="">' . $row['veiculo'] . '</td>'
+                            . '<td scope="">' . $row['descricao_atividade'] . '</td>'
+                            . '<td scope="">' . $row['responsavel'] . '</td>';
+                    }
                     ?>
                 </tr>
             </body>
