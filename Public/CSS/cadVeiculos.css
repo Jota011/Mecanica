@@ -1,0 +1,17 @@
+.cadCarroView{
+    margin: 292px;
+}
+
+
+#fundo_cad{
+    position: relative;
+    /* top: 68%; */
+    left: 58%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(255, 255, 255, 0.6);
+    /*background-color: #fff;*/
+    width: 72%;
+    height: 308px;
+
+}
+
