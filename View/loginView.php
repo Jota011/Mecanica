@@ -5,7 +5,7 @@ require_once '../Templates/header.php';
 <body>
         <div class="hero is-fullheight">
                 <div class="hero-body is-justify-content-center is-align-items-center">
-                        <form action="../Controller/formController.php" method="post" name="formLogin" id="formLogin">
+                        <form action="../Controller/formController.php?action=validaLogin" method="post" name="formLogin" id="formLogin">
                                 <div class="columns is-flex is-flex-direction-column box">
                                         <div class="column">
                                                 <label for="pin">PIN PARA ACESSO</label>
