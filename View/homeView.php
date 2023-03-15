@@ -70,9 +70,8 @@ include_once '../Templates/header.php';
             </div>
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-out icon' ></i>
-                        <button class="text nav-text button_logout" onclick = "deslogar();return false">Logout</button>
+                    <a onclick="deslogar()">
+                        <i class='bx bx-log-out icon'></i>
                     </a>
                 </li>        
             </div>
@@ -80,10 +79,10 @@ include_once '../Templates/header.php';
     </nav>
     <section class="home">
     <div class="menu_principal">MENU PRINCIPAL</div>
-    <Br>
+    <br>
     </section>
     <script>
-        
+
       const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),
       toggle = body.querySelector(".toggle"),
@@ -91,13 +90,17 @@ include_once '../Templates/header.php';
       modeSwitch = body.querySelector(".toggle-switch"),
       modeText = body.querySelector(".mode-text");          
 
-            toggle.addEventListener("click" , () =>{
-                sidebar.classList.toggle("close");
-            })
+            if(toggle){
+                toggle.addEventListener("click" , () =>{
+                    sidebar.classList.toggle("close");
+                })
+            }
 
-            procurar.addEventListener("click" , () =>{
-                sidebar.classList.remove("close");
-            })
+            if(procurar){
+                procurar.addEventListener("click" , () =>{
+                    sidebar.classList.remove("close");
+                })
+            }
 
     </script>
 

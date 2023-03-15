@@ -1,5 +1,6 @@
 <?php 
-require_once '../Templates/header.php'; 
+require_once '../Templates/header.php';
+unset($_SESSION['nome']); 
 ?>
 <link rel="stylesheet" href="../Public/CSS/loginView.css">
 <body>
