@@ -392,5 +392,14 @@ img {
     max-width: 84%;
 }
 
+.sidebar ~ .container-page{
+    padding-left: 88px;
+}
 
+.sidebar.close ~ .container-page{
+    padding-left: 88px;
+}
 
+.sidebar:not(.close) ~ .container-page{
+    padding-left: 300px;
+}

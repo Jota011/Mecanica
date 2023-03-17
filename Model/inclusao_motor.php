@@ -1,7 +1,7 @@
 <?php
-require '../connection.php';
+require 'connection.php';
 
-include '../../Controller/class_motor.php';
+include '../Controller/class_motor.php';
 
 
     //Cria objetos 'Motor'
@@ -25,7 +25,7 @@ include '../../Controller/class_motor.php';
 
         {
             echo"<script>alert('Cadastro realizado com sucesso');</script>";
-            echo"<script>window.location='../../View/cadmotorView.php'</script>";
+            echo"<script>window.location='../View/cadmotorView.php'</script>";
 
         }
         else{

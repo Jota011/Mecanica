@@ -50,7 +50,7 @@ include_once '../Templates/header.php';
                     </li>
                     
                     <li class="nav-link">
-                        <a href="?page=cadastro_cliente">
+                        <a href="cadMotorView.php">
                         
 							<i class='bx bxs-wrench icon'></i>
                             <span class="text nav-text ">Cadastro de Motor</span>                            
@@ -59,7 +59,7 @@ include_once '../Templates/header.php';
 
                     
                     <li class="nav-link">
-                        <a href="?page=cadastro_tecnico ">
+                        <a href="cadServicoView.php">
                         
                         <i class='bx bx-id-card icon '></i>
                             <span class="text nav-text ">Cadastro de Serviço</span>                            
