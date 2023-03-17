@@ -14,6 +14,8 @@ require '../Model/connection.php';
     <!-- estilo que vem do index.css -->
     <link rel="stylesheet" href="../Public/CSS/estiloHome.css">
     <link rel="stylesheet" href="../Public/CSS/cadVeiculos.css">
+    <link rel="stylesheet" href="../Public/CSS/estiloCarro.css">
+
     
 	
 	<link rel="icon" href="../Public/Imagens/senai_logo.png" type="image/icon type">
@@ -44,6 +46,14 @@ require '../Model/connection.php';
 
                     <li class="nav-link">
                         <a href="cadCarroView.php">
+                            
+							<i class='bx bxs-car-mechanic icon'></i>
+                            <span class="text nav-text ">Cadastro de Carro</span>                            
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="consVeiculoView.php">
                             
 							<i class='bx bxs-car-mechanic icon'></i>
                             <span class="text nav-text ">Cadastro de Carro</span>                            
