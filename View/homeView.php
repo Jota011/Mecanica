@@ -130,7 +130,7 @@ $MYSQLI = "SELECT - FROM ordem_servico"
     </script>
 
     <body>
-        <div class="container">
+        <div class="container" style="margin-top:160px;margin-left:299px;padding:50px;">
             <table class="table">
                 <tr>
                     <th scope="col">#</th>

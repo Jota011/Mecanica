@@ -35,28 +35,56 @@ require '../Model/connection.php';
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
-            <div class="menu">
+        <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-link">
-                    <i class='bx bxs-car-mechanic icon'></i>
-                        <select  style="border: none;" class='text nav-text'  href="cselectdCarroView.php">
-                            <a>
-                            <option class="text nav-text input">Cadastro de Carro</option>
-                            <span class="text nav-text ">Cadastro de Carro</span>
-                        </select>
+                        <a href="cadCarroView.php">
+                            
+							<i class='bx bxs-car-mechanic icon'></i>
+                            <span class="text nav-text ">Cadastro de Carro</span>                            
+                        </a>
                     </li>
+                    
+                   <li class="nav-link">
+                        <a href="consCarroView.php">
+                            
+							<i class='bx bx-search-alt-2 icon'></i>
+                            
+                            <span class="text nav-text ">Consulta de Carro</span>                            
+                        </a>
+                    </li>
+
                     <li class="nav-link">
-                        <a href="cadMotorView.php">
+                        <a href="?page=cadastro_cliente">
 
                             <i class='bx bxs-wrench icon'></i>
                             <span class="text nav-text ">Cadastro de Motor</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="cadServicoView.php ">
+                        <a href="consMotorView.php">
+                            
+							<i class='bx bx-search-alt-2 icon'></i>
+                            
+                            <span class="text nav-text ">Consulta de Motor</span>                            
+                        </a>
+                    </li>
 
-                            <i class='bx bx-id-card icon '></i>
-                            <span class="text nav-text ">Cadastro de Serviço</span>
+
+                    <li class="nav-link">
+                        <a href="cadServicoView.php">
+                        
+                        <i class='bx bx-id-card icon '></i>
+                            <span class="text nav-text ">Cadastro de Serviço</span>                                                
+
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="consServicoView.php">
+                            
+							<i class='bx bx-search-alt-2 icon'></i>
+                            
+                            <span class="text nav-text ">Consulta de Servico</span>                            
                         </a>
                     </li>
 
@@ -121,13 +149,14 @@ include_once '../Templates/header.php';
                             </select>
                         </div>
                         <div class='campo'>
+                        <label type='text' for="veiculo">Turma</label>
                             <input type="text" name="turma" class='input' placeholder="Turma...">
                         </div>
                         <div class="campo">
-
+                                
                             <label type='text' for="veiculo">Veículo </label>
                             <br>
-                            <select class="input "  name="veiculo" id="veiculo" style="max-width:200px;">
+                            <select class="input "  name="veiculo" id="veiculo" style="max-width:336px;">
                                 <?php
                                 $sql = "SELECT * FROM veiculos";
                                 $query = $mysqli->query($sql);

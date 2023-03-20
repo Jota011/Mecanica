@@ -41,24 +41,22 @@ require '../Model/connection.php';
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
-            <div class="menu">
+        <div class="menu">
                 <ul class="menu-links">
-
-
                     <li class="nav-link">
                         <a href="cadCarroView.php">
-
-                            <i class='bx bxs-car-mechanic icon'></i>
-                            <span class="text nav-text ">Cadastro de Carro</span>
+                            
+							<i class='bx bxs-car-mechanic icon'></i>
+                            <span class="text nav-text ">Cadastro de Carro</span>                            
                         </a>
                     </li>
-
-
-                    <li class="nav-link">
-                        <a href="consVeiculoView.php">
-
-                            <i class='bx bxs-car-mechanic icon'></i>
-                            <span class="text nav-text ">Cadastro de Carro</span>
+                    
+                   <li class="nav-link">
+                        <a href="consCarroView.php">
+                            
+							<i class='bx bx-search-alt-2 icon'></i>
+                            
+                            <span class="text nav-text ">Consulta de Carro</span>                            
                         </a>
                     </li>
 
@@ -69,13 +67,30 @@ require '../Model/connection.php';
                             <span class="text nav-text ">Cadastro de Motor</span>
                         </a>
                     </li>
+                    <li class="nav-link">
+                        <a href="consMotorView.php">
+                            
+							<i class='bx bx-search-alt-2 icon'></i>
+                            
+                            <span class="text nav-text ">Consulta de Motor</span>                            
+                        </a>
+                    </li>
 
 
                     <li class="nav-link">
-                        <a href="?page=cadastro_tecnico ">
+                        <a href="cadServicoView.php">
+                        
+                        <i class='bx bx-id-card icon '></i>
+                            <span class="text nav-text ">Cadastro de Serviço</span>                                                
 
-                            <i class='bx bx-id-card icon'></i>
-                            <span class="text nav-text ">Cadastro de Serviço</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="consServicoView.php">
+                            
+							<i class='bx bx-search-alt-2 icon'></i>
+                            
+                            <span class="text nav-text ">Consulta de Servico</span>                            
                         </a>
                     </li>
 
@@ -125,7 +140,7 @@ include_once '../Templates/header.php';
 <!--CONSULTA VEÍCULO-->
 
 <body>
-    <div class="container" style="margin-top:160px;margin-left:299px;padding:50px;">
+    <div class="container" >
         <table class="table">
             <tr>
                 <th scope="col">#</th>
