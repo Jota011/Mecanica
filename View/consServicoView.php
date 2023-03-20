@@ -1,6 +1,9 @@
 <?php
 require '../Model/connection.php';
 include '../Templates/header.php';
+if (isset($_GET['cadastra'])){
+    echo '<script>alert("INCLUSÃO REALIZADA COM SUCESSO!")</script>';
+}
 ?>
 <!--CONSULTA SERVICO-->
 
