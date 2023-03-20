@@ -48,7 +48,7 @@ $MYSQLI = "SELECT - FROM ordem_servico"
                     <li class="nav-link">
                         <a href="cadCarroView.php">
                             
-							<i class='bx bxs-car-mechanic icon'></i>
+                            <i class='bx bxs-car-mechanic icon'></i>
                             <span class="text nav-text ">Cadastro de Carro</span>                            
                         </a>
                     </li>
@@ -56,7 +56,7 @@ $MYSQLI = "SELECT - FROM ordem_servico"
                    <li class="nav-link">
                         <a href="consCarroView.php">
                             
-							<i class='bx bx-search-alt-2 icon'></i>
+                            <i class='bx bx-search-alt-2 icon'></i>
                             
                             <span class="text nav-text ">Consulta de Carro</span>                            
                         </a>
@@ -72,7 +72,7 @@ $MYSQLI = "SELECT - FROM ordem_servico"
                     <li class="nav-link">
                         <a href="consMotorView.php">
                             
-							<i class='bx bx-search-alt-2 icon'></i>
+                            <i class='bx bx-search-alt-2 icon'></i>
                             
                             <span class="text nav-text ">Consulta de Motor</span>                            
                         </a>
@@ -90,7 +90,7 @@ $MYSQLI = "SELECT - FROM ordem_servico"
                     <li class="nav-link">
                         <a href="consServicoView.php">
                             
-							<i class='bx bx-search-alt-2 icon'></i>
+                            <i class='bx bx-search-alt-2 icon'></i>
                             
                             <span class="text nav-text ">Consulta de Servico</span>                            
                         </a>
@@ -100,21 +100,15 @@ $MYSQLI = "SELECT - FROM ordem_servico"
             </div>
             <div class="bottom-content">
                 <li class="">
-
                     <a href="#">
                         <i class='bx bx-log-out icon'></i>
                         <button class="text nav-text button_logout" onclick="deslogar();return false">Logout</button>
-
-                    <a onclick="deslogar()">
-                        <i class='bx bx-log-out icon'></i>
-
                     </a>
                 </li>
             </div>
         </div>
     </nav>
     <section class="home">
-
         <div class="menu_principal">MENU PRINCIPAL</div>
         <Br>
     </section>
@@ -129,31 +123,6 @@ $MYSQLI = "SELECT - FROM ordem_servico"
         toggle.addEventListener("click", () => {
             sidebar.classList.toggle("close");
         })
-
-    <div class="menu_principal">MENU PRINCIPAL</div>
-    <br>
-    </section>
-    <script>
-
-      const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      procurar = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");          
-
-            if(toggle){
-                toggle.addEventListener("click" , () =>{
-                    sidebar.classList.toggle("close");
-                })
-            }
-
-            if(procurar){
-                procurar.addEventListener("click" , () =>{
-                    sidebar.classList.remove("close");
-                })
-            }
-
 
         procurar.addEventListener("click", () => {
             sidebar.classList.remove("close");
