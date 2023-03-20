@@ -15,6 +15,14 @@ require '../Model/connection.php';
     <link rel="stylesheet" href="../Public/CSS/estiloHome.css">
     <link rel="stylesheet" href="../Public/CSS/cadVeiculos.css">
 
+    <link rel="stylesheet" href="../Public/CSS/estiloCarro.css">
+
+    
+	
+	<link rel="icon" href="../Public/Imagens/senai_logo.png" type="image/icon type">
+    
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
     <link rel="icon" href="../Public/Imagens/senai_logo.png" type="image/icon type">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -35,27 +43,56 @@ require '../Model/connection.php';
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
-            <div class="menu">
+        <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="cadCarroView.php">
-
-                            <i class='bx bxs-car-mechanic icon'></i>
-                            <span class="text nav-text ">Cadastro de Carro</span>
+                            
+							<i class='bx bxs-car-mechanic icon'></i>
+                            <span class="text nav-text ">Cadastro de Carro</span>                            
                         </a>
                     </li>
+                    
+                   <li class="nav-link">
+                        <a href="consCarroView.php">
+                            
+							<i class='bx bx-search-alt-2 icon'></i>
+                            
+                            <span class="text nav-text ">Consulta de Carro</span>                            
+                        </a>
+                    </li>
+
                     <li class="nav-link">
-                        <a href="cadMotorView.php">
+                        <a href="?page=cadastro_cliente">
 
                             <i class='bx bxs-wrench icon'></i>
                             <span class="text nav-text ">Cadastro de Motor</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="cadServicoView.php">
+                        <a href="consMotorView.php">
+                            
+							<i class='bx bx-search-alt-2 icon'></i>
+                            
+                            <span class="text nav-text ">Consulta de Motor</span>                            
+                        </a>
+                    </li>
 
-                            <i class='bx bx-id-card icon '></i>
-                            <span class="text nav-text ">Cadastro de Serviço</span>
+
+                    <li class="nav-link">
+                        <a href="cadServicoView.php">
+                        
+                        <i class='bx bx-id-card icon '></i>
+                            <span class="text nav-text ">Cadastro de Serviço</span>                                                
+
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="consServicoView.php">
+                            
+							<i class='bx bx-search-alt-2 icon'></i>
+                            
+                            <span class="text nav-text ">Consulta de Servico</span>                            
                         </a>
                     </li>
 
