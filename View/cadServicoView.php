@@ -187,6 +187,35 @@ include_once '../Templates/header.php';
                         </div>
                     </div>
                 </form>
+
+    <div class="container">
+        <h2>Cadastro de Serviço</h2>
+        <form action="../Controller/formController.php?action=cadServico" method="post">
+            <label for="data">DATA</label>
+            <input type="date" id="data" name="data" required>
+            <label for="turno">Turno:</label>
+            <select name="turno" id="turno"> <!--TURNO É PERIODO NO DATABASE-->
+                <option value="Matutino">Matutino</option>
+                <option value="Vespertino">Vespertino</option>
+                <option value="Noturno">Noturno</option>
+            </select>
+            <input type="text" name="turma" placeholder="Turma..." required>
+            <label for="veiculo">Veículo: </label>
+            <select name="veiculo" id="veiculo" style="max-width:200px;">
+                <?php
+                $sql = "SELECT * FROM veiculos";
+                $query = $mysqli->query($sql);
+                while ($row = mysqli_fetch_assoc($query)){
+                    echo $row;
+                    echo '<option value="'. $row['id_veiculo'] .'">' . $row['marca']. ' ' . $row['modelo'] . " - " .  $row['cor'] . " (" .$row['descricao'] . ")" . "</option>";
+                }
+                ?>
+            </select>
+            <textarea placeholder="Atividades realizadas..." name="descricao" id="descricao" cols="30" rows="10" style="resize:none;" required></textarea>
+            <input type="text" name="responsavel" placeholder="Responsável pela aula" value="<?php echo isset($_SESSION['nome']) ? $_SESSION['nome'] : ''; ?>" required>
+            <div id="botoes">
+                <input type="submit" value="Cadastrar Serviço">
+
             </div>
         </div>
     </div>

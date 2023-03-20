@@ -14,12 +14,14 @@ function validarLogin($pin){
             if($row['is_dev'] != 0){
                 $_SESSION['is_dev'] = $row['is_dev'];
             }
-            header('Location:../View/homeView.php');
+            if ($row['pin'] == $pin){
+                header('Location:../View/homeView.php');
+            }
         }else{
             header('Location:../View/loginView.php?erro=1');
         }
     }else{
-        unset($_SESSION['usuario']);
+        unset($_SESSION['nome']);
         unset($_POST['pinLogin']);
         header('Location:./View/loginView.php');
     }
@@ -32,7 +34,7 @@ function cadServico($data, $turno, $turma, $veiculo, $descricao, $resp){
         $veiculoDado = procuraVeiculo($veiculo);
         $sql = "INSERT INTO ordem_servico(data_os, periodo, turma, veiculo, descricao_atividade, responsavel) VALUES('$data','$turno','$turma','$veiculoDado','$descricao','$resp')";
         $mysqli->query($sql);
-        header('Location:../View/consServicoView.php');
+        header('Location:../View/consServicoView.php?cadastra');
     }catch(mysqli_sql_exception $e){
         $e->getMessage();
     }
