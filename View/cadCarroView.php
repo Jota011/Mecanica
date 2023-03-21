@@ -2,6 +2,12 @@
 require_once '../Templates/header.php';
 require '../Model/connection.php';
 
+if (isset($_GET['funcao'])){
+    $_SESSION['funcao'] = $_GET['funcao'];
+}
+if (isset($_GET['idVeiculo']) && !empty($_GET['idVeiculo'])){
+    $_SESSION['idVeiculo'] = $_GET['idVeiculo'];
+}
 ?>
 <!DOCTYPE html>
 <!-- Coding by CodingLab | www.codinglabweb.com -->
@@ -109,7 +115,16 @@ require '../Model/connection.php';
         </div>
     </nav>
     <section class="home">
-        <div class="menu_principal">CADASTRO DE VEÍCULOS</div>
+        <div class="menu_principal">
+        <?php 
+            if (isset($_SESSION['funcao']) && $_SESSION['funcao'] == 'editar'){
+                echo 'EDITAR VEÍCULO';
+            } else {
+                echo 'CADASTRO DE VEÍCULOS';
+            }
+        ?>    
+
+        </div>
         <Br>
     </section>
     <script>
@@ -128,10 +143,15 @@ require '../Model/connection.php';
         procurar.addEventListener("click", () => {
             sidebar.classList.remove("close");
         })
+
+        function editar(){
+            var form = document.getElementById("main-container");
+            var idVeiculo = form.idVeiculo.value;
+        }
     </script>
 </body>
 </html>
-                                                                <!-- cadastro carro-->
+<!-- cadastro carro-->
 <body>
     <div class="container-page">
         <div id="fundo_cad">
@@ -139,6 +159,7 @@ require '../Model/connection.php';
                 <form id="main-container" method="post" action="../Model/inclusao_Carro.php">
                     <div class="clearfix">
                         <div class="campo">
+                            <input id="idVeiculo" type="text" value="<?=$_SESSION['idVeiculo']; ?>"> <!---NAO FUNCIONANDO--->
                             <label for="car" class="preenchimento">Modelo do veiculo</label>
                             <input type="text" class="input" name="modelo_veiculo" id="modelo" placeholder="Modelo" />
                         </div>
@@ -152,12 +173,19 @@ require '../Model/connection.php';
                         </div>
                         <div class="campo">
                             <label for="codigo" class="campo1">Descrição do veiculo</label>
-                            <input type="text" class="input" name="desc_veiculo" id="desc" placeholder="Nome-Ano" />
+                            <input type="text" class="input" name="desc_veiculo" id="desc" placeholder="Descrição curta..." />
                         </div>
                         <div class="campo2">
                             <div class="botoes_save">
                                 <button type="reset" class="btn btn-danger ">Cancelar</button>
-                                <button type="submit" class="btn btn-success separacao_botao" name="save">Salvar</button>
+                          
+                                 <?php 
+                                    if ($_SESSION['funcao'] == "editar"){
+                                       echo '<button type="submit" class="btn btn-success separacao_botao" onclick="editar()" name="save">Editar</button>';
+                                    }else{
+                                        echo '<button type="submit" class="btn btn-success separacao_botao" name="save">Cadastrar</button>';
+                                    }
+                                 ?>
                             </div>
                         </div>
                     </div>
