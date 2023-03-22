@@ -2,11 +2,7 @@
 session_start();
 include_once '../Templates/header.php';
 include_once '../Model/connection.php';
-$MYSQLI = "SELECT - FROM ordem_servico";
-
-if (isset($_GET['editado'])){
-    echo '<script>alert("Dados de veículo alterados")</script>';
-}
+$MYSQLI = "SELECT - FROM ordem_servico"
 ?>
 
 <!DOCTYPE html>
@@ -45,18 +41,18 @@ if (isset($_GET['editado'])){
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="cadCarroView.php">
-                            
+
                             <i class='bx bxs-car-mechanic icon'></i>
-                            <span class="text nav-text ">Cadastro de Carro</span>                            
+                            <span class="text nav-text ">Cadastro de Carro</span>
                         </a>
                     </li>
-                    
-                   <li class="nav-link">
+
+                    <li class="nav-link">
                         <a href="consCarroView.php">
-                            
+
                             <i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Carro</span>                            
+
+                            <span class="text nav-text ">Consulta de Carro</span>
                         </a>
                     </li>
 
@@ -69,28 +65,28 @@ if (isset($_GET['editado'])){
                     </li>
                     <li class="nav-link">
                         <a href="consMotorView.php">
-                            
+
                             <i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Motor</span>                            
+
+                            <span class="text nav-text ">Consulta de Motor</span>
                         </a>
                     </li>
 
 
                     <li class="nav-link">
                         <a href="cadServicoView.php">
-                        
-                        <i class='bx bx-id-card icon '></i>
-                            <span class="text nav-text ">Cadastro de Serviço</span>                                                
+
+                            <i class='bx bx-id-card icon '></i>
+                            <span class="text nav-text ">Cadastro de Serviço</span>
 
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="consServicoView.php">
-                            
+
                             <i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Servico</span>                            
+
+                            <span class="text nav-text ">Consulta de Servico</span>
                         </a>
                     </li>
 
@@ -107,7 +103,7 @@ if (isset($_GET['editado'])){
         </div>
     </nav>
     <section class="home">
-        <div class="menu_principal">MENU PRINCIPAL</div>
+        <div class="menu_principal">CONSULTAR MOTORES</div>
         <Br>
     </section>
     <script>
@@ -132,29 +128,27 @@ if (isset($_GET['editado'])){
             <table class="table">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Marca</th>
-                    <th scope="col">Modelo</th>
-                    <th scope="col">Cor</th>
+                    <th scope="col">Nº do Motor</th>
                     <th scope="col">Descrição</th>
+                    <th scope="col">Nº da Base</th>
+                    <th></th>
                 </tr>
 
                 <body>
                     <?php
                     require '../Model/connection.php';
-                    $sql = "SELECT * FROM veiculos ORDER BY id_veiculo";
+                    $sql = "SELECT * FROM motor ORDER BY id_motor";
                     $query = $mysqli->query($sql);
                     while ($row = mysqli_fetch_assoc($query)) {
                         echo '<tr>'
-                            . '<td scope="row">' . $row['id_veiculo'] . '</td>'
-                            . '<td scope="row">' . $row['marca'] . '</td>'
-                            . '<td scope="row">' . $row['modelo'] . '</td>'
-                            . '<td scope="row">' . $row['cor'] . '</td>'
-                            . '<td scope="row">' . $row['descricao'] . '</td>'
-
+                            . '<td scope="row">' . $row['id_motor'] . '</td>'
+                            . '<td scope="row">' . $row['numeracao_motor'] . '</td>'
+                            . '<td scope="row">' . $row['descricao_motor'] . '</td>'
+                            . '<td scope="row">' . $row['base'] . '</td>'
                             . '<td> '
-                            . '<a class="bx bx-edit" onclick="editarVeiculo('.$row['id_veiculo'].',\''.$row["marca"].'\',\''.$row["modelo"].'\',\''.$row["cor"].'\',\''.$row["descricao"].'\')"></a>'
-                            . '<a class="bx bx-trash-alt" style="padding: 12px;" onclick="deletarVeiculo('.$row["id_veiculo"].')"></a>'
-                            .'</td>'
+                            . '<a class="bx bx-edit" onclick="editarMotor(' . $row['id_motor'] . ')"></a>'
+                            . '<a class="bx bx-trash-alt" style="padding: 12px;" onclick="deletarMotor(' . $row["id_motor"] . ')"></a>'
+                            . '</td>'
 
                             . '</tr>';
                     }

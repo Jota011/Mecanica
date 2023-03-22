@@ -61,7 +61,7 @@ include_once '../Model/connection.php';
                     </li>
 
                     <li class="nav-link">
-                        <a href="?page=cadastro_cliente">
+                        <a href="cadMotorView.php">
 
                             <i class='bx bxs-wrench icon'></i>
                             <span class="text nav-text ">Cadastro de Motor</span>
