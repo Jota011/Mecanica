@@ -150,13 +150,15 @@ if (isset($_GET['cadastra'])) {
                         $sql = "SELECT * FROM ordem_servico ORDER BY id_os";
                         $query = $mysqli->query($sql);
                         while ($row = mysqli_fetch_assoc($query)) {
-                            echo  '<td scope="">' . $row['id_os'] . '</td>'
+                            echo '<tr>' 
+                                .'<td scope="">' . $row['id_os'] . '</td>'
                                 . '<td scope="">' . $row['data_os'] . '</td>'
                                 . '<td scope="">' . $row['periodo'] . '</td>'
                                 . '<td scope="">' . $row['turma'] . '</td>'
                                 . '<td scope="">' . $row['veiculo'] . '</td>'
                                 . '<td scope="">' . $row['descricao_atividade'] . '</td>'
-                                . '<td scope="">' . $row['responsavel'] . '</td>';
+                                . '<td scope="">' . $row['responsavel'] . '</td>'
+                                . '</tr>';
                         }
                         ?>
                     </tr>
