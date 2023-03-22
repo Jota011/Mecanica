@@ -15,14 +15,11 @@ function deletarVeiculo(idVeiculo){
     }
 }
 
-function editarVeiculo(idVeiculo){
-    if (idVeiculo != null){
-        var end = '../View/cadCarroView.php?funcao=editar'
-        + '&&idVeiculo='+idVeiculo;
-        //PASSAR OS PARAMETROS DE MODELO, MARCA, COR, DESCRICAO, PARA PREENCHER OS CAMPOS NA EDIT
-        window.location.href = end;
-    } else {
-        var end = '../View/consCarroView.php';
-        window.location.href = end;
-    }
+function editarVeiculo(idVeiculo,marca,modelo,cor,descricao){
+    var end = '../View/cadCarroView.php?funcao=editar&&idVeiculo='+idVeiculo
+    + '&&marca='+marca
+    + '&&modelo='+modelo
+    + '&&cor='+cor
+    + '&&descricao='+descricao;
+    window.location.href = end;
 }

@@ -2,7 +2,11 @@
 session_start();
 include_once '../Templates/header.php';
 include_once '../Model/connection.php';
-$MYSQLI = "SELECT - FROM ordem_servico"
+$MYSQLI = "SELECT - FROM ordem_servico";
+
+if (isset($_GET['editado'])){
+    echo '<script>alert("Dados de veículo alterados")</script>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -148,7 +152,7 @@ $MYSQLI = "SELECT - FROM ordem_servico"
                             . '<td scope="row">' . $row['descricao'] . '</td>'
 
                             . '<td> '
-                            . '<a class="bx bx-edit" onclick="editarVeiculo('.$row['id_veiculo'].')"></a>'
+                            . '<a class="bx bx-edit" onclick="editarVeiculo('.$row['id_veiculo'].',\''.$row["marca"].'\',\''.$row["modelo"].'\',\''.$row["cor"].'\',\''.$row["descricao"].'\')"></a>'
                             . '<a class="bx bx-trash-alt" style="padding: 12px;" onclick="deletarVeiculo('.$row["id_veiculo"].')"></a>'
                             .'</td>'
 

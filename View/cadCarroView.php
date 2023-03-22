@@ -146,7 +146,16 @@ if (isset($_GET['idVeiculo']) && !empty($_GET['idVeiculo'])){
 
         function editar(){
             var form = document.getElementById("main-container");
-            var idVeiculo = form.idVeiculo.value;
+            var idVeiculo = form.idVeiculo.value,
+                modelo = form.modelo.value
+                marca = form.marca.value
+                cor = form.cor.value
+                desc = form.desc.value;
+            form.action = "../Controller/editar.php?idVeiculo="+idVeiculo
+            + '&&modelo='+modelo
+            + '&&marca='+marca
+            + '&&cor='+cor
+            + '&&desc='+desc;
         }
     </script>
 </body>
@@ -159,31 +168,30 @@ if (isset($_GET['idVeiculo']) && !empty($_GET['idVeiculo'])){
                 <form id="main-container" method="post" action="../Model/inclusao_Carro.php">
                     <div class="clearfix">
                         <div class="campo">
-                            <input id="idVeiculo" type="text" value="<?=$_SESSION['idVeiculo']; ?>"> <!---NAO FUNCIONANDO--->
-                            <label for="car" class="preenchimento">Modelo do veiculo</label>
-                            <input type="text" class="input" name="modelo_veiculo" id="modelo" placeholder="Modelo" />
+                            <label for="codigo" class="preenchimento">Marca do veiculo</label>
+                            <input type="text" class="input" name="marca_veiculo" id="marca" placeholder="Marca" value="<?php echo isset($_GET['marca']) ? $_GET['marca'] : '' ?>"/>
                         </div>
                         <div class="campo">
-                            <label for="codigo" class="preenchimento">Marca do veiculo</label>
-                            <input type="text" class="input" name="marca_veiculo" id="marca" placeholder="Marca" />
+                            <input id="idVeiculo" type="hidden" value="<?php echo isset($_SESSION['idVeiculo']) ? $_SESSION['idVeiculo'] : '' ?>"> <!---NAO FUNCIONANDO--->
+                            <label for="car" class="preenchimento">Modelo do veiculo</label>
+                            <input type="text" class="input" name="modelo_veiculo" id="modelo" placeholder="Modelo" value="<?php echo isset($_GET['modelo']) ? $_GET['modelo'] : '' ?>"/>
                         </div>
                         <div class="campo">
                             <label for="codigo" class="preenchimento">Cor do veiculo</label>
-                            <input type="text" class="input" name="cor_veiculo" id="cor" placeholder="Coloração" />
+                            <input type="text" class="input" name="cor_veiculo" id="cor" placeholder="Coloração" value="<?php echo isset($_GET['cor']) ? $_GET['cor'] : '' ?>"/>
                         </div>
                         <div class="campo">
                             <label for="codigo" class="campo1">Descrição do veiculo</label>
-                            <input type="text" class="input" name="desc_veiculo" id="desc" placeholder="Descrição curta..." />
+                            <input type="text" class="input" name="desc_veiculo" id="desc" maxlength="100" placeholder="Descrição curta..." value="<?php echo isset($_GET['descricao']) ? $_GET['descricao'] : '' ?>"/>
                         </div>
                         <div class="campo2">
                             <div class="botoes_save">
                                 <button type="reset" class="btn btn-danger ">Cancelar</button>
-                          
                                  <?php 
-                                    if ($_SESSION['funcao'] == "editar"){
+                                    if (isset($_SESSION['funcao']) && $_SESSION['funcao'] == "editar"){
                                        echo '<button type="submit" class="btn btn-success separacao_botao" onclick="editar()" name="save">Editar</button>';
                                     }else{
-                                        echo '<button type="submit" class="btn btn-success separacao_botao" name="save">Cadastrar</button>';
+                                        echo '<button type="submit" class="btn btn-success separacao_botao" name="save">Salvar</button>';
                                     }
                                  ?>
                             </div>
