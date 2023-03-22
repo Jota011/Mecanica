@@ -69,7 +69,7 @@ if (isset($_GET['idVeiculo']) && !empty($_GET['idVeiculo'])){
                     </li>
 
                     <li class="nav-link">
-                        <a href="consMotorView.php">
+                        <a href="cadMotorView.php">
 
                             <i class='bx bxs-wrench icon'></i>
                             <span class="text nav-text ">Cadastro de Motor</span>

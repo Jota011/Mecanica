@@ -25,7 +25,7 @@ include '../Controller/class_motor.php';
 
         {
             echo"<script>alert('Cadastro realizado com sucesso');</script>";
-            echo"<script>window.location='../View/cadmotorView.php'</script>";
+            echo"<script>window.location='../View/cadMotorView.php'</script>";
 
         }
         else{

@@ -64,7 +64,7 @@ if (isset($_GET['cadastra'])) {
                     </li>
 
                     <li class="nav-link">
-                        <a href="cadmotorView.php">
+                        <a href="cadMotorView.php">
 
                             <i class='bx bxs-wrench icon'></i>
                             <span class="text nav-text ">Cadastro de Motor</span>

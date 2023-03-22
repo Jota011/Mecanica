@@ -357,6 +357,7 @@ body.dark .home .text {
 
 .home{
     background-image: url('../Imagens/bg_login_1.png');
+    background-size: cover;
 }
 
 .Titulo_sidebar{
