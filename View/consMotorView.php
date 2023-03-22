@@ -1,11 +1,13 @@
 <?php
-require '../Model/connection.php';
-include '../Templates/header.php';
-if (isset($_GET['cadastra'])) {
-    echo '<script>alert("INCLUSÃO REALIZADA COM SUCESSO!")</script>';
-}
+session_start();
+include_once '../Templates/header.php';
+include_once '../Model/connection.php';
+$MYSQLI = "SELECT - FROM ordem_servico"
 ?>
-<!--CONSULTA SERVICO-->
+
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,18 +15,9 @@ if (isset($_GET['cadastra'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- estilo que vem do index.css -->
     <link rel="stylesheet" href="../Public/CSS/estiloHome.css">
-    <link rel="stylesheet" href="../Public/CSS/cadVeiculos.css">
-
-    <link rel="stylesheet" href="../Public/CSS/estiloCarro.css">
-
-
-
-    <link rel="icon" href="../Public/Imagens/senai_logo.png" type="image/icon type">
-
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-
     <link rel="icon" href="../Public/Imagens/senai_logo.png" type="image/icon type">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="../Controller/gerenteController.js"></script>
 </head>
 
 
@@ -64,7 +57,7 @@ if (isset($_GET['cadastra'])) {
                     </li>
 
                     <li class="nav-link">
-                        <a href="cadmotorView.php">
+                        <a href="consMotorView.php">
 
                             <i class='bx bxs-wrench icon'></i>
                             <span class="text nav-text ">Cadastro de Motor</span>
@@ -110,7 +103,7 @@ if (isset($_GET['cadastra'])) {
         </div>
     </nav>
     <section class="home">
-        <div class="menu_principal">CONSULTAR SERVIÇOS</div>
+        <div class="menu_principal">CONSULTAR MOTORES</div>
         <Br>
     </section>
     <script>
@@ -131,35 +124,35 @@ if (isset($_GET['cadastra'])) {
     </script>
 
     <body>
-        <div class="container">
+        <div class="container" style="margin-top:160px;margin-left:299px;padding:50px;">
             <table class="table">
                 <tr>
-                    <th scope="">#</th>
-                    <th scope="">DATA</th>
-                    <th scope="">TURNO</th>
-                    <th scope="">TURMA</th>
-                    <th scope="">VEÍCULO</th>
-                    <th scope="">DESCRIÇÃO</th>
-                    <th scope="">RESPONSÁVEL</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Nº do Motor</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Nº da Base</th>
+                    <th></th>
                 </tr>
 
                 <body>
-                    <tr>
-                        <?php
-                        require '../Model/connection.php';
-                        $sql = "SELECT * FROM ordem_servico ORDER BY id_os";
-                        $query = $mysqli->query($sql);
-                        while ($row = mysqli_fetch_assoc($query)) {
-                            echo  '<td scope="">' . $row['id_os'] . '</td>'
-                                . '<td scope="">' . $row['data_os'] . '</td>'
-                                . '<td scope="">' . $row['periodo'] . '</td>'
-                                . '<td scope="">' . $row['turma'] . '</td>'
-                                . '<td scope="">' . $row['veiculo'] . '</td>'
-                                . '<td scope="">' . $row['descricao_atividade'] . '</td>'
-                                . '<td scope="">' . $row['responsavel'] . '</td>';
-                        }
-                        ?>
-                    </tr>
+                    <?php
+                    require '../Model/connection.php';
+                    $sql = "SELECT * FROM motor ORDER BY id_motor";
+                    $query = $mysqli->query($sql);
+                    while ($row = mysqli_fetch_assoc($query)) {
+                        echo '<tr>'
+                            . '<td scope="row">' . $row['id_motor'] . '</td>'
+                            . '<td scope="row">' . $row['numeracao_motor'] . '</td>'
+                            . '<td scope="row">' . $row['descricao_motor'] . '</td>'
+                            . '<td scope="row">' . $row['base'] . '</td>'
+                            . '<td> '
+                            . '<a class="bx bx-edit" onclick="editarMotor(' . $row['id_motor'] . ')"></a>'
+                            . '<a class="bx bx-trash-alt" style="padding: 12px;" onclick="deletarMotor(' . $row["id_motor"] . ')"></a>'
+                            . '</td>'
+
+                            . '</tr>';
+                    }
+                    ?>
                 </body>
             </table>
         </div>

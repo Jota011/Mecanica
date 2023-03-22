@@ -57,7 +57,7 @@ $MYSQLI = "SELECT - FROM ordem_servico"
                     </li>
 
                     <li class="nav-link">
-                        <a href="?page=cadastro_cliente">
+                        <a href="consMotorView.php">
 
                             <i class='bx bxs-wrench icon'></i>
                             <span class="text nav-text ">Cadastro de Motor</span>
