@@ -2,7 +2,8 @@
 session_start();
 require_once '../Controller/actionController.php';
 
-function validarLogin($pin){
+function validaLogin(){
+    $pin = $_POST['pinLogin'];
     require '../Model/connection.php';
     if(!empty($pin)){
         $sql = "SELECT * FROM usuariopin WHERE pin = '$pin'";

@@ -172,7 +172,7 @@ if (isset($_GET['idVeiculo']) && !empty($_GET['idVeiculo'])){
                             <input type="text" class="input" name="marca_veiculo" id="marca" placeholder="Marca" value="<?php echo isset($_GET['marca']) ? $_GET['marca'] : '' ?>"/>
                         </div>
                         <div class="campo">
-                            <input id="idVeiculo" type="hidden" value="<?php echo isset($_SESSION['idVeiculo']) ? $_SESSION['idVeiculo'] : '' ?>"> <!---NAO FUNCIONANDO--->
+                            <input id="idVeiculo" type="hidden" value="<?php echo isset($_SESSION['idVeiculo']) ? $_SESSION['idVeiculo'] : '' ?>">
                             <label for="car" class="preenchimento">Modelo do veiculo</label>
                             <input type="text" class="input" name="modelo_veiculo" id="modelo" placeholder="Modelo" value="<?php echo isset($_GET['modelo']) ? $_GET['modelo'] : '' ?>"/>
                         </div>
