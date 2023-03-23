@@ -1,9 +1,5 @@
 <?php
-switch ($_GET['action']){
-    case 'validaLogin':
-        validarLogin($_POST['pinLogin']);
-    break;
-    case 'cadServico':
-        cadServico($_POST['data'], $_POST['turno'], $_POST['turma'], $_POST['veiculo'], $_POST['descricao'], $_POST['responsavel']);
-    break;
+$action = $_GET['action'];
+if (function_exists($action)){
+    call_user_func($action);
 }
