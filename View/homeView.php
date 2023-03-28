@@ -45,18 +45,18 @@ include_once '../Model/connection.php';
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="cadCarroView.php">
-                            
+
                             <i class='bx bxs-car-mechanic icon'></i>
-                            <span class="text nav-text ">Cadastro de Carro</span>                            
+                            <span class="text nav-text ">Cadastro de Carro</span>
                         </a>
                     </li>
-                    
-                   <li class="nav-link">
+
+                    <li class="nav-link">
                         <a href="consCarroView.php">
-                            
+
                             <i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Carro</span>                            
+
+                            <span class="text nav-text ">Consulta de Carro</span>
                         </a>
                     </li>
 
@@ -69,28 +69,28 @@ include_once '../Model/connection.php';
                     </li>
                     <li class="nav-link">
                         <a href="consMotorView.php">
-                            
+
                             <i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Motor</span>                            
+
+                            <span class="text nav-text ">Consulta de Motor</span>
                         </a>
                     </li>
 
 
                     <li class="nav-link">
                         <a href="cadServicoView.php">
-                        
-                        <i class='bx bx-id-card icon '></i>
-                            <span class="text nav-text ">Cadastro de Serviço</span>                                                
+
+                            <i class='bx bx-id-card icon '></i>
+                            <span class="text nav-text ">Cadastro de Serviço</span>
 
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="consServicoView.php">
-                            
+
                             <i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Servico</span>                            
+
+                            <span class="text nav-text ">Consulta de Servico</span>
                         </a>
                     </li>
 
@@ -109,6 +109,67 @@ include_once '../Model/connection.php';
     <section class="home">
         <div class="menu_principal">MENU PRINCIPAL</div>
         <Br>
+
+        <div class="Buttons">
+            <a class="botao_home" href="cadServicoView.php">Cadastro de Serviço</a>
+            <a class="botao_home" href="cadCarroView.php">Cadastro de Veiculo</a>
+            <a class="botao_home" href="cadmotorView.php">Cadastro de Motor</a>
+            <br>
+            <a class="botao_home" href="consServicoView.php">Consultar Serviços</a>
+            <a class="botao_home" href="consCarroView.php">Consultar Veiculos</a>
+            <a class="botao_home" href="consMotorView">Consultar Motores</a>
+        </div>
+
+        <style>
+            /*testes*/
+
+            .Buttons {
+                position: relative;
+                top: 130px;
+                border-right: 100px;
+                border-top: 10px;
+                border-width: 100px;
+
+            }
+
+            .botao_home {
+                color: blue;
+                border-color: black;
+                border-radius: 10px;
+                background-color: white;
+                align-items: center;
+                cursor: pointer;
+                padding: 80px 80px;
+                display: inline-block;
+                margin: 30px 30px;
+                width: 370px;
+            }
+
+            @media(min-width: 851px) and (max-width: 873px) {
+                .botao_home {
+                    width: 180px;
+                }
+            }
+
+
+            @media(min-width: 853px) and (max-width: 1246px) {
+                .botao_home {
+                    width: 200px;
+                }
+            }
+
+            @media(min-width: 1245px) and (max-width: 1386px) {
+                .botao_home {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+
+            .home {
+                text-align: center;
+            }
+        </style>
+
     </section>
     <script>
         const body = document.querySelector('body'),

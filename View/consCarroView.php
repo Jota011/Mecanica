@@ -107,7 +107,7 @@ if (isset($_GET['editado'])){
         </div>
     </nav>
     <section class="home">
-        <div class="menu_principal">MENU PRINCIPAL</div>
+        <div class="menu_principal">CONSULTAR CARROS</div>
         <Br>
     </section>
     <script>

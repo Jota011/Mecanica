@@ -1,2 +1,2 @@
 <?php
-header('Location:/mecanicasenai/View/loginView.php');//
+header('Location:/mecanicasenai/View/loginView.php');
