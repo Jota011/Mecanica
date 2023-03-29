@@ -146,6 +146,7 @@ $MYSQLI = "SELECT - FROM ordem_servico"
                             . '<td scope="row">' . $row['descricao_motor'] . '</td>'
                             . '<td scope="row">' . $row['base'] . '</td>'
                             . '<td> '
+                            
                             . '<a class="bx bx-edit" onclick="editarMotor(' . $row['id_motor'] . ')"></a>'
                             . '<a class="bx bx-trash-alt" style="padding: 12px;" onclick="deletarMotor(' . $row["id_motor"] . ')"></a>'
                             . '</td>'
