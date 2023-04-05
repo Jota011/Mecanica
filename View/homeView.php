@@ -117,7 +117,7 @@ include_once '../Model/connection.php';
             <br>
             <a class="botao_home" href="consServicoView.php">Consultar Serviços</a>
             <a class="botao_home" href="consCarroView.php">Consultar Veiculos</a>
-            <a class="botao_home" href="consMotorView">Consultar Motores</a>
+            <a class="botao_home" href="consMotorView.php">Consultar Motores</a>
         </div>
 
         <style>
@@ -145,20 +145,20 @@ include_once '../Model/connection.php';
                 width: 370px;
             }
 
-            @media(min-width: 851px) and (max-width: 873px) {
+            @media(min-width: 600px) and (max-width: 768px) {
                 .botao_home {
                     width: 180px;
                 }
             }
 
 
-            @media(min-width: 853px) and (max-width: 1246px) {
+            @media(min-width: 768px) and (max-width: 992px) {
                 .botao_home {
                     width: 200px;
                 }
             }
 
-            @media(min-width: 1245px) and (max-width: 1386px) {
+            @media(min-width: 922px) and (max-width: 1200px) {
                 .botao_home {
                     width: 200px;
                     height: 200px;

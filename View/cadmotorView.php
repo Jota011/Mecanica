@@ -34,22 +34,22 @@ require '../Model/connection.php';
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
-        <div class="menu">
+            <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="cadCarroView.php">
-                            
-							<i class='bx bxs-car-mechanic icon'></i>
-                            <span class="text nav-text ">Cadastro de Carro</span>                            
+
+                            <i class='bx bxs-car-mechanic icon'></i>
+                            <span class="text nav-text ">Cadastro de Carro</span>
                         </a>
                     </li>
-                    
-                   <li class="nav-link">
+
+                    <li class="nav-link">
                         <a href="consCarroView.php">
-                            
-							<i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Carro</span>                            
+
+                            <i class='bx bx-search-alt-2 icon'></i>
+
+                            <span class="text nav-text ">Consulta de Carro</span>
                         </a>
                     </li>
 
@@ -62,28 +62,28 @@ require '../Model/connection.php';
                     </li>
                     <li class="nav-link">
                         <a href="consMotorView.php">
-                            
-							<i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Motor</span>                            
+
+                            <i class='bx bx-search-alt-2 icon'></i>
+
+                            <span class="text nav-text ">Consulta de Motor</span>
                         </a>
                     </li>
 
 
                     <li class="nav-link">
                         <a href="cadServicoView.php">
-                        
-                        <i class='bx bx-id-card icon '></i>
-                            <span class="text nav-text ">Cadastro de Serviço</span>                                                
+
+                            <i class='bx bx-id-card icon '></i>
+                            <span class="text nav-text ">Cadastro de Serviço</span>
 
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="consServicoView.php">
-                            
-							<i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Servico</span>                            
+
+                            <i class='bx bx-search-alt-2 icon'></i>
+
+                            <span class="text nav-text ">Consulta de Servico</span>
                         </a>
                     </li>
 
@@ -100,11 +100,16 @@ require '../Model/connection.php';
         </div>
     </nav>
     <section class="home">
-        <div class="menu_principal">CADASTRO DE MOTOR</div>
+        <?php
+        if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar') {
+            echo '<div class="menu_principal">EDITAR MOTOR</div>';
+        } else {
+            echo '<div class="menu_principal">CADASTRO DE MOTOR</div>';
+        }
+        ?>
         <Br>
     </section>
     <script>
-
         const body = document.querySelector('body'),
             sidebar = body.querySelector('nav'),
             toggle = body.querySelector(".toggle"),
@@ -119,6 +124,21 @@ require '../Model/connection.php';
         procurar.addEventListener("click", () => {
             sidebar.classList.remove("close");
         })
+
+        function editar() {
+            var form = document.getElementById("main-container");
+            var idMotor = form.idMotor.value,
+                numeracao_motor = form.numeracao_motor.value
+            descricao_motor = form.descricao_motor.value
+            base = form.base.value;
+
+            form.action = "../Controller/editar.php?idMotor=" + idMotor +
+                '&&numeracao_motor=' + numeracao_motor +
+                '&&descricao_motor=' + descricao_motor +
+                '&&base=' + base;
+
+            form.submit;
+        }
     </script>
 </body>
 
@@ -131,9 +151,10 @@ require '../Model/connection.php';
             <div class="cadCarroView">
                 <form id="main-container" method="POST" action="../Model/inclusao_motor.php">
                     <div class="clearfix">
+
                         <div class="campo">
                             <label for="car" class="preenchimento">Numeracão do Motor</label>
-                            <input type="text" class="input" name="numeracao_motor" id="numeracao_motor" placeholder="Modelo"/>
+                            <input type="text" class="input" name="numeracao_motor" id="numeracao_motor" placeholder="Modelo" />
                         </div>
                         <div class="campo">
                             <label for="codigo" class="preenchimento">Descrição do Motor</label>
@@ -145,8 +166,19 @@ require '../Model/connection.php';
                         </div>
                         <div class="campo2">
                             <div class="botoes_save">
-                                <button type="reset" class="btn btn-danger ">Cancelar</button>
-                                <button type="submit" class="btn btn-success separacao_botao" name="submit">Salvar</button>
+                                <?php
+                                if (isset($_GET['funcao']) && $_GET['funcao'] == "editar") {
+
+                                    echo '<button class="btn btn-danger ">Cancelar <a href="consMotorView.php"></a></button>';
+                                    echo '<button type="submit" class="btn btn-success separacao_botao" onclick="editar()" name="submit">Editar</button>';
+                                    
+                                } else {
+
+                                    echo '<button type="reset" class="btn btn-danger ">Cancelar <a href="#"></a></button>';
+                                    echo '<button type="submit" class="btn btn-success separacao_botao" name="submit">Salvar</button>';
+
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

@@ -35,22 +35,22 @@ require '../Model/connection.php';
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
-        <div class="menu">
+            <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="cadCarroView.php">
-                            
+
                             <i class='bx bxs-car-mechanic icon'></i>
-                            <span class="text nav-text ">Cadastro de Carro</span>                            
+                            <span class="text nav-text ">Cadastro de Carro</span>
                         </a>
                     </li>
-                    
-                   <li class="nav-link">
+
+                    <li class="nav-link">
                         <a href="consCarroView.php">
-                            
+
                             <i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Carro</span>                            
+
+                            <span class="text nav-text ">Consulta de Carro</span>
                         </a>
                     </li>
 
@@ -63,28 +63,28 @@ require '../Model/connection.php';
                     </li>
                     <li class="nav-link">
                         <a href="consMotorView.php">
-                            
+
                             <i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Motor</span>                            
+
+                            <span class="text nav-text ">Consulta de Motor</span>
                         </a>
                     </li>
 
 
                     <li class="nav-link">
                         <a href="cadServicoView.php">
-                        
-                        <i class='bx bx-id-card icon '></i>
-                            <span class="text nav-text ">Cadastro de Serviço</span>                                                
+
+                            <i class='bx bx-id-card icon '></i>
+                            <span class="text nav-text ">Cadastro de Serviço</span>
 
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="consServicoView.php">
-                            
+
                             <i class='bx bx-search-alt-2 icon'></i>
-                            
-                            <span class="text nav-text ">Consulta de Servico</span>                            
+
+                            <span class="text nav-text ">Consulta de Servico</span>
                         </a>
                     </li>
 
@@ -101,11 +101,15 @@ require '../Model/connection.php';
         </div>
     </nav>
     <section class="home">
-        <div class="menu_principal">CADASTRO DE ATIVIDADES</div>
-        <Br>
+        <?php
+        if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar') {
+            echo '<div class="menu_principal">EDITAR SERVICO</div>';
+        } else {
+            echo '<div class="menu_principal">CADASTRO SERVICO</div>';
+        }
+        ?>
     </section>
     <script>
-
         const body = document.querySelector('body'),
             sidebar = body.querySelector('nav'),
             toggle = body.querySelector(".toggle"),
@@ -149,14 +153,14 @@ include_once '../Templates/header.php';
                             </select>
                         </div>
                         <div class='campo'>
-                        <label type='text' for="veiculo">Turma</label>
+                            <label type='text' for="veiculo">Turma</label>
                             <input type="text" name="turma" class='input' placeholder="Turma...">
                         </div>
                         <div class="campo">
-                                
+
                             <label type='text' for="veiculo">Veículo </label>
                             <br>
-                            <select class="input "  name="veiculo" id="veiculo" style="max-width:336px;">
+                            <select class="input " name="veiculo" id="veiculo" style="max-width:336px;">
                                 <?php
                                 $sql = "SELECT * FROM veiculos";
                                 $query = $mysqli->query($sql);
@@ -170,19 +174,26 @@ include_once '../Templates/header.php';
                         </div>
                         <div class="campo">
                             <label for="">Atividades</label>
-                            <textarea class='input' placeholder="Atividades realizadas..." name="descricao" id="descricao" cols="30"
-                                rows="10" ></textarea>
+                            <textarea class='input' placeholder="Atividades realizadas..." name="descricao" id="descricao" cols="30" rows="10"></textarea>
                         </div>
                         <div class="campo">
                             <label for="">Responsável</label>
-                            <input class='input' type="text" name="responsavel" placeholder="Responsável pela aula"
-                                value="<?php echo isset($_SESSION['nome']) ? $_SESSION['nome'] : ''; ?>">
+                            <input class='input' type="text" name="responsavel" placeholder="Responsável pela aula" value="<?php echo isset($_SESSION['nome']) ? $_SESSION['nome'] : ''; ?>">
                         </div>
                         <div class="campo2">
                             <div class="botoes_save">
-                                <button type="reset" class="btn btn-danger ">Cancelar</button>
-                                <button type="submit" class="btn btn-success separacao_botao"
-                                    name="save">Salvar</button>
+                                <?php
+                                if (isset($_GET['funcao']) && $_GET['funcao'] == "editar") {
+
+                                    echo '<button class="btn btn-danger ">Cancelar <a href="consServicoView.php"></a></button>';
+                                    echo '<button type="submit" class="btn btn-success separacao_botao" onclick="editar()" name="submit">Editar</button>';
+                                } else {
+
+                                    echo '<button type="reset" class="btn btn-danger ">Cancelar <a href="#"></a></button>';
+                                    echo '<button type="submit" class="btn btn-success separacao_botao" name="submit">Salvar</button>';
+                                }
+                                ?>
+
                             </div>
                         </div>
                     </div>

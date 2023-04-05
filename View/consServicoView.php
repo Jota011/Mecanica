@@ -128,6 +128,31 @@ if (isset($_GET['cadastra'])) {
         procurar.addEventListener("click", () => {
             sidebar.classList.remove("close");
         })
+
+        //SERVICO------------------------------------------------------------------------------
+
+        function deletarServico(idServico) {
+            if (idServico != null) {
+                if (confirm("DESEJA DELETAR O SERVICO SELECIONADO?") == true) {
+                    var end = '../Controller/deletar.php?idServico=' + idServico;
+                    window.location.href = end;
+                } else {
+                    var end = '../View/consServicoView.php';
+                    window.location.href = end;
+                }
+            }
+        }
+
+        function editarServico(idServico, descricao_atividade, data_os, periodo, turma, veiculo, responsavel) {
+            var end = '../View/cadServicoView.php?funcao=editar&&idServico=' + idServico +
+                '&&descricao_atividade=' + descricao_atividade +
+                '&&data_os=' + data_os +
+                '&&periodo=' + periodo +
+                '&&turma=' + turma +
+                '&&veiculo=' + veiculo +
+                '$$responsavel=' + responsavel;
+            window.location.href = end
+        }
     </script>
 
     <body>
@@ -164,7 +189,7 @@ if (isset($_GET['cadastra'])) {
                                 . '<a class="bx bx-trash-alt" style="padding: 12px;" onclick="deletarServico(' . $row["id_os"] . ')"></a>'
                                 . '</td>'
 
-                                . '</tr>';  
+                                . '</tr>';
                         }
                         ?>
                     </tr>
