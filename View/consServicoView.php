@@ -150,15 +150,21 @@ if (isset($_GET['cadastra'])) {
                         $sql = "SELECT * FROM ordem_servico ORDER BY id_os";
                         $query = $mysqli->query($sql);
                         while ($row = mysqli_fetch_assoc($query)) {
-                            echo '<tr>' 
-                                .'<td scope="">' . $row['id_os'] . '</td>'
+                            echo '<tr>'
+                                . '<td scope="">' . $row['id_os'] . '</td>'
                                 . '<td scope="">' . $row['data_os'] . '</td>'
                                 . '<td scope="">' . $row['periodo'] . '</td>'
                                 . '<td scope="">' . $row['turma'] . '</td>'
                                 . '<td scope="">' . $row['veiculo'] . '</td>'
                                 . '<td scope="">' . $row['descricao_atividade'] . '</td>'
                                 . '<td scope="">' . $row['responsavel'] . '</td>'
-                                . '</tr>';
+
+                                . '<td> '
+                                . '<a class="bx bx-edit" onclick="editarServico(' . $row['id_os'] . ',\'' . $row["data_os"] . '\',\'' . $row["periodo"] . '\',\'' . $row["turma"] . '\',\'' . $row["veiculo"] . '\',\'' . $row["descricao_atividade"] . '\',\'' . $row["responsavel"] . '\')"></a>'
+                                . '<a class="bx bx-trash-alt" style="padding: 12px;" onclick="deletarServico(' . $row["id_os"] . ')"></a>'
+                                . '</td>'
+
+                                . '</tr>';  
                         }
                         ?>
                     </tr>
