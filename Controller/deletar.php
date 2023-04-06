@@ -38,7 +38,7 @@ if (isset($_GET['idServico'])){
     deletarServico($_GET['idServico']);
 }
 ///////
-function deletarServico($idMotor){
+function deletarServico($idServico){
     require '../Model/connection.php';
     $sql = "DELETE FROM ordem_servico WHERE id_os = '$idServico'";
     try{
