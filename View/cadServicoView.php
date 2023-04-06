@@ -124,6 +124,26 @@ require '../Model/connection.php';
         procurar.addEventListener("click", () => {
             sidebar.classList.remove("close");
         })
+
+        function editar() {
+            var form = document.getElementById("main-container");
+            var idServico = form.idServico.value,
+                descricao_atividade = form.descricao_atividade.value
+            data_os = form.data_os.value
+            periodo = form.periodo.value
+            turma = form.turma.value
+            veiculo = form.veiculo.value
+            responsavel = form.responsavel.value;
+
+            form.action = "../Controller/editar.php?idServico=" + idServico +
+                '&&descricao_atividade=' + descricao_atividade +
+                '&&data_os=' + data_os +
+                '&&periodo=' + periodo +
+                '&&turma=' + turma +
+                '&&veiculo=' + veiculo +
+                '$$responsavel=' + responsavel;
+            form.submit;
+        }
     </script>
 </body>
 
@@ -182,14 +202,11 @@ include_once '../Templates/header.php';
                         </div>
                         <div class="campo2">
                             <div class="botoes_save">
+                                <button class="btn btn-danger ">Cancelar <a href="consServicoView.php"></a></button>
                                 <?php
                                 if (isset($_GET['funcao']) && $_GET['funcao'] == "editar") {
-
-                                    echo '<button class="btn btn-danger ">Cancelar <a href="consServicoView.php"></a></button>';
                                     echo '<button type="submit" class="btn btn-success separacao_botao" onclick="editar()" name="submit">Editar</button>';
                                 } else {
-
-                                    echo '<button type="reset" class="btn btn-danger ">Cancelar <a href="#"></a></button>';
                                     echo '<button type="submit" class="btn btn-success separacao_botao" name="submit">Salvar</button>';
                                 }
                                 ?>

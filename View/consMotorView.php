@@ -2,7 +2,9 @@
 session_start();
 include_once '../Templates/header.php';
 include_once '../Model/connection.php';
-//$MYSQLI = "SELECT - FROM ordem_servico"
+if (isset($_GET['editado'])){
+    echo '<script>alert("Motor Editado Com Sucesso!")</script>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -141,6 +143,7 @@ include_once '../Model/connection.php';
                 + '&&base=' + base;
             window.location.href = end;
         }
+    
     </script>
 
     <body>

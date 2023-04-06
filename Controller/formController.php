@@ -28,9 +28,15 @@ function validaLogin(){
     }
 }
 
-function cadServico($data, $turno, $turma, $veiculo, $descricao, $resp){
+function cadServico(){
     require '../Model/connection.php';
     require '../Model/procuraDados.php';
+    $data = $_POST['data'];
+    $turno = $_POST['turno'];
+    $turma = $_POST['turma'];
+    $veiculoDado = $_POST['veiculo'];
+    $descricao = $_POST['descricao'];
+    $resp = $_POST['responsavel'];
     try{
         $veiculoDado = procuraVeiculo($veiculo);
         $sql = "INSERT INTO ordem_servico(data_os, periodo, turma, veiculo, descricao_atividade, responsavel) VALUES('$data','$turno','$turma','$veiculoDado','$descricao','$resp')";

@@ -1,4 +1,6 @@
 <?php
+include '../Controller/actionController.php';
+
 //Veiculo
 if (isset($_GET['idVeiculo'])){
     editarVeiculo($_GET['idVeiculo'],$_GET['modelo'],$_GET['marca'],$_GET['cor'],$_GET['desc']);
@@ -16,14 +18,14 @@ function editarVeiculo($idVeiculo,$modelo,$marca,$cor,$desc){
     }
 }
 
-//Motor
-if (isset($_GET['idMotor'])){
-    editarMotor($_GET['idMotor'],$_GET['numeracao_motor'],$_GET['descricao_motor'],$_GET['base']);
-}
-
-function editarMotor($idMotor,$numeracao_motor,$descricao_motor,$nr_base){
+function editaMotor(){
     require '../Model/connection.php';
-    $sql = "UPDATE motor SET base='$nr_base', numeracao_motor='$numeracao_motor', descricao_motor='$descricao_motor' WHERE id_motor='$idMotor'";
+    $idMotor = $_POST['idMotor'];
+    $numMotor = $_POST['numeracao_motor'];
+    $descMotor = $_POST['descricao_motor'];
+    $base = $_POST['base'];
+
+    $sql = "UPDATE motor SET base='$base', numeracao_motor='$numMotor', descricao_motor='$descMotor' WHERE id_motor='$idMotor'";
     try{
         $mysqli->query($sql);
         header('Location:../View/consMotorView.php?editado');

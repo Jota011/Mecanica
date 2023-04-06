@@ -110,7 +110,13 @@ if (isset($_GET['cadastra'])) {
         </div>
     </nav>
     <section class="home">
-        <div class="menu_principal">CONSULTAR SERVIÇOS</div>
+    <?php
+        if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar') {
+            echo '<div class="menu_principal">EDITAR SERVICO</div>';
+        } else {
+            echo '<div class="menu_principal">CADASTRO DE SERVICO</div>';
+        }
+        ?>
         <Br>
     </section>
     <script>
@@ -137,7 +143,7 @@ if (isset($_GET['cadastra'])) {
                     var end = '../Controller/deletar.php?idServico=' + idServico;
                     window.location.href = end;
                 } else {
-                    var end = '../View/consServicoView.php';
+                    var end = '../View/consMotorView.php';
                     window.location.href = end;
                 }
             }
@@ -151,7 +157,7 @@ if (isset($_GET['cadastra'])) {
                 '&&turma=' + turma +
                 '&&veiculo=' + veiculo +
                 '$$responsavel=' + responsavel;
-            window.location.href = end
+            window.location.href = end;
         }
     </script>
 
