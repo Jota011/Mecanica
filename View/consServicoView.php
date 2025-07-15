@@ -110,7 +110,13 @@ if (isset($_GET['cadastra'])) {
         </div>
     </nav>
     <section class="home">
-        <div class="menu_principal">CONSULTAR SERVIÇOS</div>
+    <?php
+        if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar') {
+            echo '<div class="menu_principal">EDITAR SERVICO</div>';
+        } else {
+            echo '<div class="menu_principal">CADASTRO DE SERVICO</div>';
+        }
+        ?>
         <Br>
     </section>
     <script>
@@ -128,6 +134,31 @@ if (isset($_GET['cadastra'])) {
         procurar.addEventListener("click", () => {
             sidebar.classList.remove("close");
         })
+
+        //SERVICO------------------------------------------------------------------------------
+
+        function deletarServico(idServico) {
+            if (idServico != null) {
+                if (confirm("DESEJA DELETAR O SERVICO SELECIONADO?") == true) {
+                    var end = '../Controller/deletar.php?idServico=' + idServico;
+                    window.location.href = end;
+                } else {
+                    var end = '../View/consMotorView.php';
+                    window.location.href = end;
+                }
+            }
+        }
+
+        function editarServico(idServico, descricao_atividade, data_os, periodo, turma, veiculo, responsavel) {
+            var end = '../View/cadServicoView.php?funcao=editar&&idServico=' + idServico +
+                '&&descricao_atividade=' + descricao_atividade +
+                '&&data_os=' + data_os +
+                '&&periodo=' + periodo +
+                '&&turma=' + turma +
+                '&&veiculo=' + veiculo +
+                '$$responsavel=' + responsavel;
+            window.location.href = end;
+        }
     </script>
 
     <body>
@@ -150,14 +181,20 @@ if (isset($_GET['cadastra'])) {
                         $sql = "SELECT * FROM ordem_servico ORDER BY id_os";
                         $query = $mysqli->query($sql);
                         while ($row = mysqli_fetch_assoc($query)) {
-                            echo '<tr>' 
-                                .'<td scope="">' . $row['id_os'] . '</td>'
+                            echo '<tr>'
+                                . '<td scope="">' . $row['id_os'] . '</td>'
                                 . '<td scope="">' . $row['data_os'] . '</td>'
                                 . '<td scope="">' . $row['periodo'] . '</td>'
                                 . '<td scope="">' . $row['turma'] . '</td>'
                                 . '<td scope="">' . $row['veiculo'] . '</td>'
                                 . '<td scope="">' . $row['descricao_atividade'] . '</td>'
                                 . '<td scope="">' . $row['responsavel'] . '</td>'
+
+                                . '<td> '
+                                . '<a class="bx bx-edit" onclick="editarServico(' . $row['id_os'] . ',\'' . $row["data_os"] . '\',\'' . $row["periodo"] . '\',\'' . $row["turma"] . '\',\'' . $row["veiculo"] . '\',\'' . $row["descricao_atividade"] . '\',\'' . $row["responsavel"] . '\')"></a>'
+                                . '<a class="bx bx-trash-alt" style="padding: 12px;" onclick="deletarServico(' . $row["id_os"] . ')"></a>'
+                                . '</td>'
+
                                 . '</tr>';
                         }
                         ?>

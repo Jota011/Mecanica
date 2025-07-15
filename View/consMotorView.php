@@ -2,7 +2,9 @@
 session_start();
 include_once '../Templates/header.php';
 include_once '../Model/connection.php';
-$MYSQLI = "SELECT - FROM ordem_servico"
+if (isset($_GET['editado'])){
+    echo '<script>alert("Motor Editado Com Sucesso!")</script>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +19,6 @@ $MYSQLI = "SELECT - FROM ordem_servico"
     <link rel="stylesheet" href="../Public/CSS/estiloHome.css">
     <link rel="icon" href="../Public/Imagens/senai_logo.png" type="image/icon type">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <script src="../Controller/gerenteController.js"></script>
 </head>
 
 
@@ -121,6 +122,28 @@ $MYSQLI = "SELECT - FROM ordem_servico"
         procurar.addEventListener("click", () => {
             sidebar.classList.remove("close");
         })
+        //MOTOR------------------------------------------------------------------------------
+
+        function deletarMotor(idMotor) {
+            if (idMotor != null) {
+                if (confirm("DESEJA DELETAR O MOTOR SELECIONADO?") == true) {
+                    var end = '../Controller/deletar.php?idMotor=' + idMotor;
+                    window.location.href = end;
+                } else {
+                    var end = '../View/consMotorView.php';
+                    window.location.href = end;
+                }
+            }
+        }
+
+        function editarMotor(idMotor, numeracao_motor, descricao_motor, base) {
+            var end = '../View/cadmotorView.php?funcao=editar&&idMotor=' + idMotor
+                + '&&numeracao_motor=' + numeracao_motor
+                + '&&descricao_motor=' + descricao_motor
+                + '&&base=' + base;
+            window.location.href = end;
+        }
+    
     </script>
 
     <body>
@@ -145,11 +168,16 @@ $MYSQLI = "SELECT - FROM ordem_servico"
                             . '<td scope="row">' . $row['numeracao_motor'] . '</td>'
                             . '<td scope="row">' . $row['descricao_motor'] . '</td>'
                             . '<td scope="row">' . $row['base'] . '</td>'
-                            . '<td> '
                             
+                            
+                            . '<td> '              
                             . '<a class="bx bx-edit" onclick="editarMotor(' . $row['id_motor'] . ')"></a>'
                             . '<a class="bx bx-trash-alt" style="padding: 12px;" onclick="deletarMotor(' . $row["id_motor"] . ')"></a>'
                             . '</td>'
+
+                            . '<a class="bx bx-edit" onclick="editarMotor('.$row["id_motor"].',\''.$row["numeracao_motor"].'\',\''.$row["descricao_motor"].'\',\''.$row["base"].'\')"></a>'
+                            . '<a class="bx bx-trash-alt" style="padding: 12px;" onclick="deletarMotor('.$row["id_motor"].')"></a>'
+                            .'</td>'
 
                             . '</tr>';
                     }
